@@ -1,0 +1,11 @@
+# Chaves de API e Configurações Sensíveis
+config.js
+.env
+
+# Pastas de dependências (caso venha a usar npm)
+node_modules/
+
+# Arquivos de sistema e logs
+.DS_Store
+*.log
+dist/

@@ -1,49 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Telehealth Dashboard - Beta</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Telehealth Dashboard - Beta</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans">
-    <nav class="p-6 border-b bg-white shadow-sm flex justify-between items-center">
-        <h1 class="text-xl font-bold text-blue-600 tracking-tight">HealthConnect <span class="text-slate-400 font-light">| MedTech</span></h1>
-        <div class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase">API Online</div>
-    </nav>
 
-    <main class="max-w-4xl mx-auto mt-10 p-6">
-        <header class="mb-8">
-            <h2 class="text-3xl font-bold">Agendamento de Consulta</h2>
-            <p class="text-slate-500">Selecione uma especialidade para verificar disponibilidade (Simulação API).</p>
-        </header>
+  <nav class="p-6 border-b bg-white shadow-sm flex justify-between items-center">
+    <h1 class="text-xl font-bold text-blue-600 tracking-tight">
+      HealthConnect <span class="text-slate-400 font-light">| MedTech</span>
+    </h1>
+    <div class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase">
+      API Online
+    </div>
+  </nav>
 
-        <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Especialidade Médica</label>
-                    <select id="specialty-select" class="w-full p-3 bg-slate-100 border-none rounded-lg focus:ring-2 focus:ring-blue-500">
-                        <option value="">Carregando opções...</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block text-sm font-semibold mb-2">Valor da Consulta (Stripe Mock)</label>
-                    <div id="price-display" class="text-2xl font-mono font-bold text-blue-700 mt-2">R$ 0,00</div>
-                </div>
-            </div>
+  <main class="max-w-4xl mx-auto mt-10 p-6">
+    <header class="mb-8">
+      <h2 class="text-3xl font-bold">Agendamento de Consulta</h2>
+      <p class="text-slate-500">Selecione uma especialidade para verificar disponibilidade (Simulação API).</p>
+    </header>
 
-            <button id="btn-book" class="w-full mt-8 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] active:scale-95 shadow-lg">
-                Confirmar Agendamento e Pagar
-            </button>
+    <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-semibold mb-2">Especialidade Médica</label>
+          <select id="specialty-select" class="w-full p-3 bg-slate-100 border-none rounded-lg focus:ring-2 focus:ring-blue-500">
+            <option value="">Carregando opções...</option>
+          </select>
         </div>
-
-        <div class="mt-10 bg-slate-900 text-green-400 p-4 rounded-lg font-mono text-xs shadow-2xl">
-            <p>> [SYSTEM]: Aguardando interação do usuário...</p>
-            <div id="console-log" class="mt-2 space-y-1"></div>
+        <div>
+          <label class="block text-sm font-semibold mb-2">Valor da Consulta (Stripe Mock)</label>
+          <div id="price-display" class="text-2xl font-mono font-bold text-blue-700 mt-2">
+            R$ 0,00
+          </div>
         </div>
-    </main>
+      </div>
 
-    <script src="app.js"></script>
+      <button id="btn-book" 
+        disabled 
+        class="w-full mt-8 bg-blue-600 opacity-50 cursor-not-allowed text-white font-bold py-4 rounded-xl transition-all shadow-lg transform hover:scale-[1.01] active:scale-95">
+        Conectando ao Banco...
+      </button>
+    </div>
+
+    <div class="mt-10 bg-slate-900 text-green-400 p-4 rounded-lg font-mono text-xs shadow-2xl">
+      <p class="text-slate-500">// System Logs</p>
+      <div id="console-log" class="mt-2 space-y-1">
+        <p>> [SYSTEM]: Aguardando inicialização...</p>
+      </div>
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>

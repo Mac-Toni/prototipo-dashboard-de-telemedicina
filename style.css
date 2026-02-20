@@ -1,40 +1,75 @@
 /* Custom Styles para o Projeto Telehealth */
 
-/* Efeito de gradiente suave no fundo */
+/* Efeito de gradiente suave no fundo para profundidade */
 body {
     background: radial-gradient(circle at top right, #f8fafc, #eff6ff);
     min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Animação suave para o "Console Log" de desenvolvedor */
 #console-log p {
-    animation: fadeIn 0.5s ease-out forwards;
-    border-left: 2px solid #10b981;
-    padding-left: 8px;
-    margin-bottom: 4px;
+    animation: fadeIn 0.3s ease-out forwards;
+    /* A borda agora é controlada via JS ou classe para manter consistência */
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateX(-10px); }
-    to { opacity: 1; transform: translateX(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(5px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
-/* Estilização extra para o Scrollbar do log */
+/* Estilização da área de log (Simulador de Terminal) */
 #console-log {
-    max-height: 150px;
+    max-height: 200px;
     overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: #475569 #1e293b;
+    display: flex;
+    flex-direction: column; /* Garante que o prepend funcione visualmente bem */
 }
 
-/* Efeito de "Glow" no botão de agendamento ao passar o mouse */
-#btn-book:hover {
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+/* Custom Scrollbar para navegadores Webkit (Chrome/Edge/Safari) */
+#console-log::-webkit-scrollbar {
+    width: 6px;
 }
 
-/* Estilo para quando o botão estiver desabilitado (processando) */
+#console-log::-webkit-scrollbar-track {
+    background: #1e293b;
+    border-radius: 10px;
+}
+
+#console-log::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 10px;
+}
+
+#console-log::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Efeito de "Glow" e Feedback no botão principal */
+#btn-book {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#btn-book:not(:disabled):hover {
+    box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.4);
+}
+
+/* Estilo para estado desabilitado (Conectando ou Processando) */
 #btn-book:disabled {
-    background-color: #94a3b8;
+    filter: grayscale(0.5);
+    opacity: 0.7;
     cursor: not-allowed;
-    transform: none;
+    transform: none !important;
+}
+
+/* Ajuste de responsividade para o container principal */
+main {
+    flex: 1;
 }
