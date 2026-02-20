@@ -1,0 +1,40 @@
+/* Custom Styles para o Projeto Telehealth */
+
+/* Efeito de gradiente suave no fundo */
+body {
+    background: radial-gradient(circle at top right, #f8fafc, #eff6ff);
+    min-height: 100vh;
+}
+
+/* Animação suave para o "Console Log" de desenvolvedor */
+#console-log p {
+    animation: fadeIn 0.5s ease-out forwards;
+    border-left: 2px solid #10b981;
+    padding-left: 8px;
+    margin-bottom: 4px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Estilização extra para o Scrollbar do log */
+#console-log {
+    max-height: 150px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #475569 #1e293b;
+}
+
+/* Efeito de "Glow" no botão de agendamento ao passar o mouse */
+#btn-book:hover {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.4);
+}
+
+/* Estilo para quando o botão estiver desabilitado (processando) */
+#btn-book:disabled {
+    background-color: #94a3b8;
+    cursor: not-allowed;
+    transform: none;
+}
