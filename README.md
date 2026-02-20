@@ -1,4 +1,4 @@
-# HealthConnect | MedTech Simulation 🩺
+# HealthConnect | Simulação em Tecnologia Médica 🩺
 
 Este projeto é um rascunho de execução rápida focado no setor de Telemedicina. Ele demonstra a integração entre uma interface moderna (Figma-to-Code) e a lógica de consumo de dados via APIs.
 
